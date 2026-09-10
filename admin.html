@@ -1,2 +1,103 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PG Inventario | Administración</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin.css"></head><body class="admin-body"><div id="login" class="login"><form id="loginForm"><a class="brand">PG<span>INVENTARIO</span></a><h1>Bienvenido</h1><p>Accede al centro de administración.</p><label>Correo<input type="email" required placeholder="administrador@empresa.com"></label><label>Contraseña<input type="password" required placeholder="••••••••"></label><button class="primary full">Ingresar</button><small>Modo demostración local. Conecta Firebase Authentication antes de producción.</small></form></div><div id="panel" class="admin-shell hidden"><aside class="sidebar"><a class="brand light">PG<span>INVENTARIO</span></a><nav id="adminNav"><button class="active" data-view="dashboard">◫ Resumen</button><button data-view="products">▣ Productos</button><button data-view="movements">⇄ Movimientos</button><button data-view="sales">◇ Ventas</button><button data-view="settings">⚙ Configuración</button></nav><a href="index.html">← Ver tienda</a><button id="logout">Cerrar sesión</button></aside><main class="admin-main"><header><div><small>CENTRO DE CONTROL</small><h1 id="viewTitle">Resumen</h1></div><button class="primary" id="newProduct">+ Nuevo producto</button></header><section id="adminContent"></section></main></div><dialog id="productDialog"><form id="productForm"><div class="modal-head"><h2>Producto</h2><button type="button" id="closeDialog">×</button></div><input type="hidden" name="id"><div class="form-grid"><label>Nombre<input name="name" required></label><label>SKU<input name="sku" required></label><label>Categoría<select name="category"><option>Formales</option><option>Zapatillas</option><option>Botines</option><option>Casuales</option><option>Sandalias</option></select></label><label>Precio (S/)<input name="price" type="number" min="0" step=".01" required></label><label>Stock total<input name="stock" type="number" min="0" required></label><label>Tallas (separadas por coma)<input name="sizes" placeholder="38, 39, 40" required></label><label>Ícono<select name="emoji"><option>👞</option><option>👟</option><option>🥾</option><option>👠</option><option>🥿</option><option>👡</option></select></label><label>Etiqueta<input name="badge" placeholder="Nuevo, Oferta..."></label></div><button class="primary full">Guardar producto</button></form></dialog><script src="app.js"></script><script src="admin.js"></script></body></html>
-
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PG Inventario | Administración</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+<div id="login" class="login">
+<form id="loginForm">
+<a class="brand">PG<span>INVENTARIO</span>
+</a>
+<h1>Bienvenido</h1>
+<p>Accede al centro de administración.</p>
+<label>Correo<input type="email" required placeholder="administrador@empresa.com">
+</label>
+<label>Contraseña<input type="password" required placeholder="••••••••">
+</label>
+<button class="primary full">Ingresar</button>
+<small>Modo demostración local. Conecta Firebase Authentication antes de producción.</small>
+</form>
+</div>
+<div id="panel" class="admin-shell hidden">
+<aside class="sidebar">
+<a class="brand light">PG<span>INVENTARIO</span>
+</a>
+<nav id="adminNav">
+<button class="active" data-view="dashboard">◫ Resumen</button>
+<button data-view="products">▣ Productos</button>
+<button data-view="movements">⇄ Movimientos</button>
+<button data-view="sales">◇ Ventas</button>
+<button data-view="settings">⚙ Configuración</button>
+</nav>
+<a href="index.html">← Ver tienda</a>
+<button id="logout">Cerrar sesión</button>
+</aside>
+<main class="admin-main">
+<header>
+<div>
+<small>CENTRO DE CONTROL</small>
+<h1 id="viewTitle">Resumen</h1>
+</div>
+<button class="primary" id="newProduct">+ Nuevo producto</button>
+</header>
+<section id="adminContent">
+</section>
+</main>
+</div>
+<dialog id="productDialog">
+<form id="productForm">
+<div class="modal-head">
+<h2>Producto</h2>
+<button type="button" id="closeDialog">×</button>
+</div>
+<input type="hidden" name="id">
+<div class="form-grid">
+<label>Nombre<input name="name" required>
+</label>
+<label>SKU<input name="sku" required>
+</label>
+<label>Categoría<select name="category">
+<option>Formales</option>
+<option>Zapatillas</option>
+<option>Botines</option>
+<option>Casuales</option>
+<option>Sandalias</option>
+</select>
+</label>
+<label>Precio (S/)<input name="price" type="number" min="0" step=".01" required>
+</label>
+<label>Stock total<input name="stock" type="number" min="0" required>
+</label>
+<label>Tallas (separadas por coma)<input name="sizes" placeholder="38, 39, 40" required>
+</label>
+<label>Ícono<select name="emoji">
+<option>👞</option>
+<option>👟</option>
+<option>🥾</option>
+<option>👠</option>
+<option>🥿</option>
+<option>👡</option>
+</select>
+</label>
+<label>Etiqueta<input name="badge" placeholder="Nuevo, Oferta...">
+</label>
+</div>
+<button class="primary full">Guardar producto</button>
+</form>
+</dialog>
+<script src="app.js">
+</script>
+<script src="admin.js">
+</script>
+<script>
+  const tableLabels=()=>document.querySelectorAll('.table-wrap table').forEach(table=>{const labels=[...table.querySelectorAll('th')].map(th=>th.textContent);table.querySelectorAll('tbody tr').forEach(row=>[...row.children].forEach((cell,index)=>{if(!cell.dataset.label)cell.dataset.label=labels[index]||''}))});
+  tableLabels();
+  new MutationObserver(tableLabels).observe(document.querySelector('#adminContent'),{childList:true,subtree:true});
+</script>
+</body>
+</html>
