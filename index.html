@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PG Calzados — calzado contemporáneo para cada paso.">
+  <title>PG Calzados | Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">Envíos a todo el Perú · Compra segura por WhatsApp</div>
+  <header class="header"><a class="brand" href="#">PG<span>CALZADOS</span></a><nav><a href="#catalogo">Catálogo</a><a href="#beneficios">Beneficios</a><a href="#nosotros">Nosotros</a></nav><button class="cart-button" id="openCart" aria-label="Abrir carrito">Carrito <b id="cartCount">0</b></button></header>
+  <main>
+    <section class="hero"><div class="hero-copy"><small>NUEVA COLECCIÓN 2026</small><h1>Diseño que acompaña <em>cada paso.</em></h1><p>Calzado seleccionado por comodidad, presencia y durabilidad. Encuentra tu estilo sin complicaciones.</p><a class="primary" href="#catalogo">Explorar colección →</a></div><div class="hero-art"><div class="shoe-card"><span>DESTACADO</span><div class="shoe-emoji">👞</div><strong>Oxford Executive</strong><small>Cuero · Acabado premium</small></div></div></section>
+    <section class="trust" id="beneficios"><div><b>Envíos confiables</b><span>Seguimiento de tu pedido</span></div><div><b>Cambios simples</b><span>Compra con tranquilidad</span></div><div><b>Atención directa</b><span>Asesoría por WhatsApp</span></div></section>
+    <section class="catalog" id="catalogo"><div class="section-head"><div><small>COLECCIÓN</small><h2>Encuentra tu próximo par</h2></div><label class="search">⌕ <input id="search" placeholder="Buscar modelo, categoría..."></label></div><div class="filters" id="filters"></div><div class="catalog-layout"><aside><h3>Filtrar</h3><label>Precio máximo <output id="priceOut">S/ 400</output><input id="price" type="range" min="50" max="400" value="400"></label><label>Talla<select id="size"><option value="">Todas</option></select></label><label>Ordenar<select id="sort"><option value="featured">Destacados</option><option value="low">Menor precio</option><option value="high">Mayor precio</option><option value="name">Nombre A–Z</option></select></label></aside><div><p class="results" id="resultCount"></p><div class="product-grid" id="products"></div></div></div></section>
+    <section class="story" id="nosotros"><div><small>NUESTRA PROMESA</small><h2>Elegancia práctica, todos los días.</h2></div><p>En PG Calzados creemos que un buen par no solo completa tu estilo: debe sentirse bien desde el primer paso. Seleccionamos modelos versátiles y brindamos atención cercana antes y después de tu compra.</p></section>
+  </main>
+  <footer><a class="brand light" href="#">PG<span>CALZADOS</span></a><p>Calidad y estilo para caminar con confianza.</p><a href="admin.html">Acceso administrativo</a><small>© 2026 PG Calzados</small></footer>
+  <a class="whatsapp" id="whatsapp" target="_blank" aria-label="Contactar por WhatsApp">✆<span>¿Te ayudamos?</span></a>
+  <div class="overlay" id="overlay"></div><aside class="cart-drawer" id="cart"><div class="cart-title"><div><small>TU COMPRA</small><h2>Carrito</h2></div><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-foot"><div><span>Subtotal</span><strong id="subtotal">S/ 0.00</strong></div><small>El costo de envío se coordina por WhatsApp.</small><button class="primary full" id="checkout">Pedir por WhatsApp</button><button class="link-button" id="clearCart">Vaciar carrito</button></div></aside>
+  <script src="app.js"></script>
+</body></html>
